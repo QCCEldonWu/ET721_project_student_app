@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Upload Notes</h2>
+
+<form method="POST">
+    <input type="text" name="image_name" placeholder="Image File Name" required>
+    <button type="submit">Upload</button>
+</form>
+
+<hr>
+
+{% for note in notes %}
+
+<div class="note-box">
+    <p>{{ note['image_name'] }}</p>
+
+    <a href="{{ url_for('delete_note', id=note['id']) }}">Delete</a>
+</div>
+
+{% endfor %}
+
+{% endblock %}
